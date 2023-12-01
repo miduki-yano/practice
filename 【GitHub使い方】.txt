@@ -1,0 +1,84 @@
+【GitHubへローカルリポジトリからファイルをあげる過程・Windows・PowerShell】
+
+PS C:\Users\user1\Desktop\github> git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+PS C:\Users\user1\Desktop\github> git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+PS C:\Users\user1\Desktop\github> git add .
+warning: in the working copy of 'ストップウォッチ/time.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'ストップウォッチ/time.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'ストップウォッチ/time.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'スペイン語クイズ/reset.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'スペイン語クイズ/spanish.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'スペイン語クイズ/spanish.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'スペイン語クイズ/spanish.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '電卓/dentaku.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '電卓/dentaku.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '電卓/dentaku.js', CRLF will be replaced by LF the next time Git touches it
+PS C:\Users\user1\Desktop\github> $ git config --global core.autoCRLF false
+$ : 用語 '$' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前
+が正しく記述されていることを確認し、パスが含まれている場合はそのパスが正しいことを確認してから、再試行してください。
+発生場所 行:1 文字:1
++ $ git config --global core.autoCRLF false
++ ~
+    + CategoryInfo          : ObjectNotFound: ($:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\user1\Desktop\github> git config --global core.autoCRLF false
+PS C:\Users\user1\Desktop\github> git add .
+PS C:\Users\user1\Desktop\github> git add .
+PS C:\Users\user1\Desktop\github> git commit -m "first Commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'user1@R-72374730.(none)')
+PS C:\Users\user1\Desktop\github> git config --global user.email "1226hanamizuki@gmail.com"
+>> git config --global user.name "miduki-yano"
+PS C:\Users\user1\Desktop\github> git commit -m "first Commit"
+[main (root-commit) 09afa38] first Commit
+ 3 files changed, 126 insertions(+)
+ create mode 100644 time.css
+ create mode 100644 time.html
+ create mode 100644 time.js
+PS C:\Users\user1\Desktop\github> git remote add origin https:git@github.com:miduki-yano/practice.git
+PS C:\Users\user1\Desktop\github> git push origin main
+ssh: Could not resolve hostname https: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\user1\Desktop\github> git remote add origin https://github.com:miduki-yano/practice.git
+error: remote origin already exists.
+PS C:\Users\user1\Desktop\github> git push origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:miduki-yano/practice.git'
+PS C:\Users\user1\Desktop\github> git remote add origin https://github.com/miduki-yano/practice.git
+error: remote origin already exists.
+PS C:\Users\user1\Desktop\github> git remote rm origin
+PS C:\Users\user1\Desktop\github> git remote add origin https://github.com/miduki-yano/practice.git
+PS C:\Users\user1\Desktop\github> git push origin main
+info: please complete authentication in your browser...
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.64 KiB | 1.64 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/miduki-yano/practice.git
+ * [new branch]      main -> main
+PS C:\Users\user1\Desktop\github>
