@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="spanish.css">
+    <script src="spanish.js"></script>
+    <title>スペイン語クイズ</title>
+</head>
+<body>
+    <div class="quizzes-container">
+        <h1>犬でもわかる<br>スペイン語クイズ</h1>
+        <div class="quiz-container">
+            <h2>第１門</h2>
+            <div>
+                <p>食べ物を表す単語はどれ？</p>
+            </div>
+            <form id="quiz-1">
+                <input name="answer" type="radio" value="a">casa</input>
+                <input name="answer" type="radio" value="b">fallas</input>
+                <input name="answer" type="radio" value="c">patata</input>
+            </form>
+            <button id="btn1" class="btn" type="button" onclick="answerQuiz1()">回答する</button>
+        </div>
+    </div>
+    <div class="quiz-container">
+        <h2>第２問</h2>
+        <div>
+            <p>「おやすみ」を言っているのはどれ？</p>
+        </div>
+        <form id="quiz-2">
+            <input name="answer" type="radio" value="a">「Buenas&nbsp;noches」</input>
+            <input name="answer" type="radio" value="b">「Buenas&nbsp;dias」</input>
+            <input name="answer" type="radio" value="c">「Buenas&nbsp;tardes」</input>
+        </form>
+        <button id="btn2" class="btn" type="button" onclick="answerQuiz2()">回答する</button>
+    </div>
+    <div class="quiz-container">
+        <h2>第３問</h2>
+        <div>
+            <p>「あなたを愛しています。」を言っているのはどれ？</p>
+        </div>
+        <form id="quiz-3">
+            <input name="answer" type="radio" value="a">「A&nbsp;mi&nbsp;me&nbsp;encanta&nbsp;la&nbsp;ropa</input>
+            <input name="answer" type="radio" value="b">「Estoy&nbsp;cansada」</input>
+            <input name="answer" type="radio" value="c">「Te&nbsp;amo」</input>
+        </form>
+        <button id="btn3" class="btn" type="button" onclick="answerQuiz3()">回答する</button>
+    </div>
+    <div id="score-container">
+        <p id="score-message"></p>
+    </div>
+    <button class="btn-score" type="button" onclick="showScore()">合計得点を見る</button>
+</body>
+</html>
