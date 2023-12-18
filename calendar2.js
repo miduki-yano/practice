@@ -8,12 +8,12 @@ window.onload=function(){
 };//HTML読み込み直後に実行
 
 function prev(){
-    showDate.setMonth(showDate.setMonth()-1);
+    showDate.setMonth(showDate.getMonth()-1);
     showProcess(showDate);
 }//showProcess関数の引数であるshowDate変数に前の月の情報を格納
 
 function next(){
-    showDate.setMonth(showDate.getMonth+1);
+    showDate.setMonth(showDate.getMonth()+1);
     showProcess(showDate);
 }//showProcess関数の引数であるshowDate変数に次の月の情報を格納
 
@@ -47,7 +47,7 @@ function createProcess(year,month){
         calendar+="<tr>";
     
         for(var j=0;j<week.length;j++){//（０～６）曜日分回す
-            if(i==0&&j<startDayOfWeek){//表示月の初日より前の日にち（グレー表示）
+            if(i==0&&j<startDayOfWeek){//表示月第一週目の初日より前の日にち（グレー表示）
                 calendar+="<td class='disabled'>"+(lastMonthEndDate-startDayOfWeek+j+1)+"</td>";
                 //前月の末日ー表示月の初日の曜日＋曜日＋１
             }else if(count>=endDate){//表示月の末日より先の日にち
@@ -55,12 +55,12 @@ function createProcess(year,month){
                 calendar+="<td class='disabled'>"+(count-endDate)+"</td>";
             }else{
                 count++;
-                if(year==today.getFullYear()
-                && month==(today.getMonth())
-                && count==today.getDate()){
+                if(year==today.getFullYear()//もし年が今年で、
+                && month==(today.getMonth())//かつ月が今月で
+                && count==today.getDate()){//かつ今日の日にちが同じなら
                     calendar+="<td class='today'>"+count+"</td>";
                 }else{
-                    calendar+="<td>"+count+"</td>";
+                    calendar+="<td>"+count+"</td>";//それ以外は日付の表セルを作る
                 }
             }
         }
