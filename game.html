@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="game.js"></script>
+    <title>タイピングゲーム</title>
+</head>
+<body>
+    <h1>タイピングゲーム</h1>
+    <div id="main">
+        <div>
+        <p id="show">00:00.000</p>
+        </div>
+        <div>
+        <p id="text"></p>
+        <input type="text" id="typ" onkeydown="enter(event)">
+        </div>
+        <div>
+        <button id="startbutton" type="button" onclick="start()">スタート</button>
+        <button id="finishbutton" type="button" onclick="finish()">終了</button>
+        <button id="resetbutton" type="button" onclick="reset()">リセット</button>
+        </div>
+        <div>
+            <p id="count"></p>
+        </div>
+    </div>
+</body>
+</html>
