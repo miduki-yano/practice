@@ -10,7 +10,7 @@ var elapsedTime = 0;    // 経過時間
 var answer;
 var showText;
 var showCount;
-var holdTime;
+var textSum = showText.textContent;
 
 
 var textLists = [
@@ -33,7 +33,7 @@ window.onload = function(){
     startButton = document.getElementById('startbutton');
     finishButton = document.getElementById('finishbutton');
     resetButton = document.getElementById('resetbutton');
-    answer = document.getElementById('typ');
+    answer = document.getElementById('type');
     showTime = document.getElementById('show');
     showText = document.getElementById('text');
     showCount = document.getElementById('count');
@@ -47,6 +47,8 @@ function selectText(){
     var no = Math.floor(Math.random()*textLists.length);
 
     showText.textContent = (textLists[no]);
+    
+    textSum = showText.textContent; // 正解したテキストを保持
 }
 
 function enter(event){
@@ -66,11 +68,13 @@ function enter(event){
 function check(){
     if(showText.textContent === answer.value){
         selectText();
+
+        
         answer.value = "";
 
-        var time = holdTime/answer.value.length;
-        showCount.textContent = ("あなたは一文字" + time + "秒で入力することができました");
+
     }else{
+        console.log('入力されたテキストが間違っています');
 
     };
 }
@@ -89,8 +93,11 @@ function start(){
 }
 
 function finish(){
-    holdTime = new Date(elapsedTime).toISOString().slice(17, 19) + (new Date(elapsedTime).toISOString().slice(14, 16))*60;
     clearTimeout(timer1);
+    //var holdTime = new Date(elapsedTime).toISOString().slice(17, 19) + (new Date(elapsedTime).toISOString().slice(14, 16))*60;
+    var holdTime = elapsedTime/1000;//経過時間を秒に変換
+    var time = holdTime/showText.textContent.length;
+    showCount.textContent = ("あなたは平均して一文字" + time.toFixed(3) + "秒で入力することができました");
 
     startButton.disabled = true;
     finishButton.disabled = true;
